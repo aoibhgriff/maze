@@ -1,19 +1,11 @@
 package maze;
-import java.util.Scanner;
 
 public class Grid {
-
-	public static void main(String []args) {
+	private Cell[][] grid;
+	
+	public Grid(int rows, int cols) {
 		
-		Scanner s = new Scanner(System.in);
-		int m = 0;
-		int n = 0;
-		
-		System.out.print("Please enter a value for the grid: ");
-		m = s.nextInt();
-		n = m;
-		
-		Cell[][] grid = new Cell[m][n];
+		grid = new Cell[rows][cols];
 		
 		for(int i = 0; i < grid.length; i++) {
 			for(int j = 0; j < grid[0].length; j++) {
@@ -22,4 +14,9 @@ public class Grid {
 			}
 		}
 	}
+	
+	public Cell[][] getGrid(){
+		return grid;
+	}
+
 }
