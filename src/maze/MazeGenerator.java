@@ -20,7 +20,22 @@ public class MazeGenerator {
 			curr = (Cell)stack.peek();
 			
 			Cell[] neighbourCells = new Cell[4];
-			//add DFS here
+			int count = getUnvisitedNeighbourCells(curr, neighbourCells);
+			
+			if(count > 0) {
+				
+				int selectRandom = (int)(Math.random() * count);
+				
+				Cell next = neighbourCells[selectRandom];
+				
+				removeWall(curr, next);
+				next.visited = true;
+				stack.push(next);
+				
+			}
+			else {
+				stack.pop();
+			}
 		}
 	}
 	
