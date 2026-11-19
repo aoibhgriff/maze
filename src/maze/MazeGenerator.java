@@ -18,6 +18,8 @@ public class MazeGenerator {
 		
 		while(!stack.isEmpty()) {
 			curr = (Cell)stack.peek();
+			
+			Cell[] neighbourCells = new Cell[4];
 			//add DFS here
 		}
 	}
@@ -52,5 +54,32 @@ public class MazeGenerator {
 		}
 		
 		return numUnvisitedNeighbours;
+	}
+	
+	private void removeWall(Cell curr, Cell next) {
+		
+		int rowDiff = next.row - curr.row;
+		int colDiff = next.col - curr.col;
+		
+		//up
+		if (rowDiff == -1) {
+			curr.top = false;
+			next.bottom = false;
+		}
+		//down
+		else if (rowDiff == 1) {
+			curr.bottom = false;
+			next.top = false;
+		}
+		//left
+		else if (colDiff == -1) {
+			curr.left = false;
+			next.right = false;
+		}
+		//right
+		else if (colDiff == 1) {
+			curr.right = false;
+			next.left = false;
+		}
 	}
 }
