@@ -12,13 +12,10 @@ public class MazeFrame extends JFrame {
 		setSize(600, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		initialiseGrid();
+		MazeGenerator generator = new MazeGenerator(grid);
+		generator.generateMaze();
 		add(new MazeCanvas(grid));
 	}
-	
-	private void generateMaze() {
-		
-	}
-	
 	
 	private void initialiseGrid() {
 		

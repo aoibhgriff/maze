@@ -2,12 +2,17 @@ package maze;
 
 public class MazeGenerator {
 
-	private Grid grid;
+	private Cell[][] grid;
 	private StackReferenceBased stack;
+	
+	public MazeGenerator(Cell[][] grid) {
+		this.grid = grid;
+		this.stack = new StackReferenceBased();
+	}
 	
 	public void generateMaze() {
 		
-		Cell[][] cells = grid.getGrid();
+		Cell[][] cells = grid;
 		
 		int rows = cells.length;
 		int cols = cells[0].length;
@@ -41,7 +46,7 @@ public class MazeGenerator {
 	
 	private int getUnvisitedNeighbourCells(Cell curr, Cell[] neighbourCells) {
 		
-		Cell[][] cells = grid.getGrid();
+		Cell[][] cells = grid;
 		
 		int rows = cells.length;
 		int cols = cells[0].length;
