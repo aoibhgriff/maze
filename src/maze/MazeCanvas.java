@@ -40,6 +40,16 @@ public class MazeCanvas extends Canvas {
 		
 		for(int i = 0; i < grid.length; i++) {
 			for(int j = 0; j < grid[0].length; j++) {
+				if (grid[i][j].shortPath) {
+				    g.setColor(java.awt.Color.GREEN);
+				    g.fillRect(j * cell_dim, i * cell_dim, cell_dim, cell_dim);
+				}
+				else if (grid[i][j].solverVisited) {
+				    g.setColor(java.awt.Color.PINK);
+				    g.fillRect(j * cell_dim, i * cell_dim, cell_dim, cell_dim);
+				}
+				g.setColor(java.awt.Color.BLACK);
+				
 				drawCell(g, grid[i][j], i*cell_dim, j*cell_dim, cell_dim);
 			}
 		}

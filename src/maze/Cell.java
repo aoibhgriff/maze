@@ -6,6 +6,8 @@ public class Cell {
 	int row;
 	int col;
 	boolean left, right, top, bottom;
+	boolean solverVisited;
+	boolean shortPath;
 	
 	public Cell(int r, int c) {
 		
@@ -13,5 +15,7 @@ public class Cell {
 		row = r;
 		col = c;
 		left = right = top = bottom = true; //set wall states to "true" 
+		solverVisited = false;
+		shortPath = false;
 	}
 }

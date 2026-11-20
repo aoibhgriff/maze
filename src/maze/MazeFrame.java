@@ -14,7 +14,10 @@ public class MazeFrame extends JFrame {
 		initialiseGrid();
 		MazeGenerator generator = new MazeGenerator(grid);
 		generator.generateMaze();
-		add(new MazeCanvas(grid));
+		MazeCanvas canvas = new MazeCanvas(grid);
+		add(canvas);
+		MazeSolver solver = new MazeSolver(grid, canvas);
+		solver.solveMaze();
 	}
 	
 	private void initialiseGrid() {
